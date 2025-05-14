@@ -1,18 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/invite', function () {
-    return view('invite');
-});
-
-use Illuminate\Http\Request;
-
-Route::post('/api/invite', function (Request $request) {
+Route::post('/invite', function (Request $request) {
     $validated = $request->validate([
         'name' => 'required|string|max:100',
         'email' => 'required|email|max:150',

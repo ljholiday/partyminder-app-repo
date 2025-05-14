@@ -1,0 +1,1 @@
+[14-May-2025 03:34:50 UTC] PHP Fatal error:  Cannot use Illuminate\Support\Facades\Route as Route because the name is already in use in /home/ljholida/public_html/domains/app.partyminder.com/routes/web.php on line 11
