@@ -9,7 +9,7 @@
     <h1>Invite a Guest</h1>
 
     <div id="app">
-            <guest-invite-form></guest-invite-form>
+        <guest-invite-form></guest-invite-form>
     </div>
 
     <script src="{{ asset('js/vue.global.prod.js') }}"></script>

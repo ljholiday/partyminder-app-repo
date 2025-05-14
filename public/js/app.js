@@ -44,4 +44,3 @@ app.component('guest-invite-form', {
 });
 
 app.mount('#app');
-
