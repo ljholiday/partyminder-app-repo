@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Party Minder – Invite</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('css/partyminder.css') }}">
 </head>
 <body>
     <h1>Invite a Guest</h1>
