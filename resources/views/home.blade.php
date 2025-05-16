@@ -28,7 +28,7 @@
         </section>
 
         <section>
-            <a href="/invite"><button>Invite a Guest</button></a>
+            <a href="/admin/events/create"><button>Create an Event</button></a>
         </section>
     </main>
 
