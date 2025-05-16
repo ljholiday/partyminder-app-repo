@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Invite;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/invite', function () {
