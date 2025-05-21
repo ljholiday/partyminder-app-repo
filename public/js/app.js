@@ -13,6 +13,8 @@ app.component('guest-invite-form', {
         return {
             name: '',
             email: '',
+            event_id: 1, // <-- required by the backend
+            invitor_email: 'lonn@ljholiday.com', // <-- required by the backend
             message: ''
         };
     },
@@ -28,7 +30,9 @@ app.component('guest-invite-form', {
                     },
                     body: JSON.stringify({
                         name: this.name,
-                        email: this.email
+                        email: this.email,
+                        event_id: this.event_id,
+                        invitor_email: this.invitor_email
                     })
                 });
 
@@ -37,6 +41,7 @@ app.component('guest-invite-form', {
                 this.name = '';
                 this.email = '';
             } catch (err) {
+                console.error(err);
                 this.message = 'Error sending invite.';
             }
         }
@@ -44,3 +49,4 @@ app.component('guest-invite-form', {
 });
 
 app.mount('#app');
+

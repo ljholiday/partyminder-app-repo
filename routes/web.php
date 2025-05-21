@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\InviteNotificationService;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Invite;
@@ -15,12 +17,31 @@ Route::get('/invite', function () {
 });
 
 Route::post('/api/invite', function (Request $request) {
+    Log::debug('Invite form submitted', ['input' => $request->all()]);
+
     $validated = $request->validate([
         'name' => 'required|string|max:100',
         'email' => 'required|email|max:150',
+        'event_id' => 'required|exists:events,id',
+        'invitor_email' => 'required|email|max:150',
     ]);
 
-    $invite = Invite::create($validated); // Save to DB
+    Log::debug('Validation passed');
+
+    $invite = Invite::create($validated);
+
+    Log::debug('Invite saved', ['invite' => $invite->toArray()]);
+
+    try {
+        InviteNotificationService::send($invite);
+        Log::debug('InviteNotificationService fired');
+    } catch (\Throwable $e) {
+        Log::error('Email sending failed: ' . $e->getMessage(), [
+            'trace' => $e->getTraceAsString(),
+            'invite' => $invite->toArray()
+        ]);
+        return response()->json(['error' => 'Error sending email'], 500);
+    }
 
     return response()->json([
         'message' => 'Guest invited successfully!',

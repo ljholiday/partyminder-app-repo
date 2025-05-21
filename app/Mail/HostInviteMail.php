@@ -16,9 +16,11 @@ class HostInviteMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $invite;
+
+    public function __construct($invite)
     {
-        //
+        $this->invite = $invite;
     }
 
     /**
@@ -37,7 +39,8 @@ class HostInviteMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.host_invite',
+        with: ['invite' => $this->invite]  // ✅ passes the variable to the view
         );
     }
 
