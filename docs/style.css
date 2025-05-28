@@ -1,0 +1,17 @@
+/* docs/style.css */
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #fdf6ec;
+  color: #333;
+  line-height: 1.6;
+  margin: 2rem;
+}
+
+h1 {
+  color: #b44900;
+}
+
+a {
+  color: #0066cc;
+}
+
