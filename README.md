@@ -42,59 +42,6 @@ The hosted app is available at:
 
 ---
 
-## Project Structure
-
-```
-party-minder-app/
-├── resources/
-│   └── views/             # Blade templates (snake_case naming)
-├── public/                # Static assets (e.g., CSS, images)
-├── routes/                # Laravel web and API routes
-├── app/                   # Core Laravel logic (Controllers, Models, etc.)
-└── .env                   # Environment-specific config (not tracked)
-```
-
----
-
-## Development Setup
-
-> ⚠️ No Node.js or npm required for styling at this stage
-> All CSS is static and lives in `/public/css`.
-
-### Clone the Repository
-
-```bash
-git clone git@github.com:ljholiday/party-minder-app.git
-cd party-minder-app
-```
-
-### Remote Editing via SSH
-
-```bash
-code --remote ssh://your-user@your-server
-```
-
-### Configure the `.env` File
-
-```env
-DATABASE_URL="mysql://username:password@localhost:3306/party_minder"
-JWT_SECRET="your_super_secret"
-```
-
----
-
-## Deployment
-
-This app is hosted on a GreenGeeks shared server.
-Laravel’s `public/` directory is mapped to:
-
-```
-~/public_html/domains/app.partyminder.com/public
-```
-
-Deploy by SSHing into the server and pulling updates from GitHub.
-
----
 
 ## License
 
