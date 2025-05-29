@@ -1,6 +1,0 @@
-# Competitors
-
-
-
-
-https://propartyplanner.com/
